@@ -1,0 +1,97 @@
+from fabric.api import env
+
+################################################################
+# Environments
+#
+# Basically we have three environments: testing, staging, live
+################################################################
+
+env.use_ssh_config = True
+env.git_url = ${deploy:giturl}
+
+
+def testing():
+    """
+    Testing environment
+    """
+    env.env_type = 'testing'
+
+    env.forward_agent = True
+
+    env.roledefs = {
+        "server": [${deploy-testing:servers}]
+    }
+
+    # Base directory
+    env.base_dir = ${deploy-testing:basedir}
+
+    # Directory where the releases will be deployed
+    env.releases = "%s/releases" % env.base_dir
+
+    # Name of the link to the current release
+    env.current = "%s/current" % env.base_dir
+
+    # username used to connect
+    env.user = ${deploy-testing:username}
+    env.port = ${deploy-testing:port}
+
+    # the git branch to deploy
+    env.git_branch = ${deploy-testing:gitbranch}
+
+
+def staging():
+    """
+    Staging environment
+    """
+    env.env_type = 'staging'
+
+    env.forward_agent = True
+
+    env.roledefs = {
+        "server": [${deploy-staging:servers}]
+    }
+
+    # Base directory
+    env.base_dir = ${deploy-staging:basedir}
+
+    # Directory where the releases will be deployed
+    env.releases = "%s/releases" % env.base_dir
+
+    # Name of the link to the current release
+    env.current = "%s/current" % env.base_dir
+
+    # username used to connect
+    env.user = ${deploy-staging:username}
+    env.port = ${deploy-staging:port}
+
+    # the git branch to deploy
+    env.git_branch = ${deploy-staging:gitbranch}
+
+
+def live():
+    """
+    Live environment
+    """
+    env.env_type = 'live'
+
+    env.forward_agent = True
+
+    env.roledefs = {
+        "server": [${deploy-live:servers}]
+    }
+
+    # Base directory
+    env.base_dir = ${deploy-live:basedir}
+
+    # Directory where the releases will be deployed
+    env.releases = "%s/releases" % env.base_dir
+
+    # Name of the link to the current release
+    env.current = "%s/current" % env.base_dir
+
+    # username used to connect
+    env.user = ${deploy-live:username}
+    env.port = ${deploy-live:port}
+
+    # the git tag to deploy
+    env.git_tag = ${deploy-live:gittag}
