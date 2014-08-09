@@ -1,0 +1,37 @@
+{
+
+  "general": {
+
+    "name": "projectname",
+    "version": "0.0.1",
+    "description": "",
+    "author": "",
+    "url": "",
+    "license": ""
+
+  },
+
+  "python": {
+
+    "install_requires": [
+      "supercell"
+    ],
+
+    "tests_require": [
+    ],
+
+    "entry_points": {
+      "console_scripts": [
+        "start_app = projectname.scripts:start_app"
+      ]
+    }
+
+  },
+
+  "tornado_options": {
+    "option_name": {
+      "value": "option_value",
+      "help": "The description of the option"
+    }
+  }
+}

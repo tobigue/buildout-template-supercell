@@ -1,0 +1,27 @@
+{
+  "deploy": {
+    "appname": "projectname",
+    "giturl": ""
+  },
+  "testing": {
+    "server": [],
+    "user": "user",
+    "port": 22,
+    "basedir": "/home/{0[testing][user]}/api/testing/{0[deploy][appname]}",
+    "gitbranch": "master"
+  },
+  "staging": {
+    "server": [],
+    "user": "user",
+    "port": 22,
+    "basedir": "/home/{0[staging][user]}/api/staging/{0[deploy][appname]}",
+    "gitbranch": "staging"
+  },
+  "live": {
+    "server": [],
+    "user": "user",
+    "port": 22,
+    "basedir": "/home/{0[live][user]}/api/live/{0[deploy][appname]}",
+    "gittag": "0.0.1"
+  }
+}

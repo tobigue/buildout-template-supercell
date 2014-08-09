@@ -16,5 +16,5 @@ name:
 	@ read newname ;\
 	mv projectname $$newname ;\
 	mv test_projectname test_$$newname ;\
-	sed -i s/projectname/$$newname/g buildout.cfg conf/deploy.cfg setup.py test_$$newname/pytest.ini test_$$newname/api/test_hello.py test_$$newname/modules/test_base.py ;\
+	sed -i s/projectname/$$newname/g buildout.cfg conf/deploy.json conf/options.json $$newname/service.py test_$$newname/pytest.ini test_$$newname/api/test_hello.py test_$$newname/modules/test_base.py ;\
 	echo === Project $$newname initialized ===

@@ -1,7 +1,7 @@
 from fabric.api import roles
 
 from .commands import deploy, rollback
-from .environment import testing, staging, live
+from .environments import testing, staging, live
 
 
 @roles('server')
