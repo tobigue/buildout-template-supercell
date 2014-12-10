@@ -58,4 +58,4 @@ def live():
     env.current = "{}/current".format(env.base_dir)
     env.user = config["live"]["user"]
     env.port = config["live"]["port"]
-    env.git_tag = "0.0.1"
+    env.git_tag = config["live"]["gittag"]
